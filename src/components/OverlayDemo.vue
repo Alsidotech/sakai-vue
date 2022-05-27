@@ -1,6 +1,8 @@
 <template>
   <div class="grid">
     <div class="col-12 lg:col-6">
+
+      <!--Application Dialog-->
       <div class="card p-fluid">
         <h5>Dialog</h5>
         <Dialog header="Dialog" v-model:visible="display" :breakpoints="{'960px': '75vw'}" :style="{width: '30vw'}"
@@ -20,6 +22,8 @@
         </Dialog>
         <Button label="Show" icon="pi pi-external-link" style="width: auto" @click="open"/>
       </div>
+
+      <!--Application Overlay Panel-->
       <div class="card p-fluid">
         <h5>Overlay Panel</h5>
         <div class="grid formgrid">
@@ -53,7 +57,9 @@
         </div>
       </div>
     </div>
+
     <div class="col-12 lg:col-6">
+      <!--Application Overlay Panel-->
       <div class="card p-fluid">
         <h5>Confirmation</h5>
         <Button label="Delete" icon="pi pi-trash" class="p-button-danger" style="width: auto"
@@ -69,6 +75,8 @@
           </template>
         </Dialog>
       </div>
+
+      <!--Application Sidebar Panel-->
       <div class="card">
         <h5>Sidebar</h5>
         <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
@@ -101,6 +109,8 @@
         <Button icon="pi pi-external-link" class="p-button-warning" @click="visibleFull = true"/>
       </div>
     </div>
+
+    <!--Application Tooltip-->
     <div class="col-12 lg:col-6">
       <div class="card">
         <h5>Tooltip</h5>
@@ -113,6 +123,8 @@
         </div>
       </div>
     </div>
+
+    <!--Application Confirm Popup-->
     <div class="col-12 lg:col-6">
       <div class="card">
         <h5>ConfirmPopup</h5>
