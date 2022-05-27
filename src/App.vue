@@ -1,21 +1,32 @@
 <template>
   <div :class="containerClass" @click="onWrapperClick">
+
+    <!--Application TopBar-->
     <AppTopBar @menu-toggle="onMenuToggle"/>
+
+    <!--Application Menus Section-->
     <div class="layout-sidebar" @click="onSidebarClick">
       <AppMenu :model="menu" @menuitem-click="onMenuItemClick"/>
     </div>
 
+    <!--Application Main Content Section-->
     <div class="layout-main-container">
+      <!--Application Content-->
       <div class="layout-main">
         <router-view/>
       </div>
+
+      <!--Application Footer-->
       <AppFooter/>
     </div>
 
+    <!--Application Configuration-->
     <AppConfig :layoutMode="layoutMode" @layout-change="onLayoutChange"/>
+
     <transition name="layout-mask">
       <div class="layout-mask p-component-overlay" v-if="mobileMenuActive"></div>
     </transition>
+
   </div>
 </template>
 

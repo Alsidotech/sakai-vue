@@ -1,5 +1,8 @@
 <template>
   <div class="grid">
+    <!--Basic Statistics Section-->
+
+    <!--Order Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
       <div class="card mb-0">
         <div class="flex justify-content-between mb-3">
@@ -16,6 +19,8 @@
         <span class="text-500">since last visit</span>
       </div>
     </div>
+
+    <!--Revenue Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
       <div class="card mb-0">
         <div class="flex justify-content-between mb-3">
@@ -32,6 +37,8 @@
         <span class="text-500">since last week</span>
       </div>
     </div>
+
+    <!--Customers Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
       <div class="card mb-0">
         <div class="flex justify-content-between mb-3">
@@ -48,6 +55,8 @@
         <span class="text-500">newly registered</span>
       </div>
     </div>
+
+    <!--Comments Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
       <div class="card mb-0">
         <div class="flex justify-content-between mb-3">
@@ -65,7 +74,9 @@
       </div>
     </div>
 
+    <!--Sales Statistics Section-->
     <div class="col-12 xl:col-6">
+      <!--Recent Sales-->
       <div class="card">
         <h5>Recent Sales</h5>
         <DataTable :value="products" :rows="5" :paginator="true" responsiveLayout="scroll">
@@ -94,6 +105,8 @@
           </Column>
         </DataTable>
       </div>
+
+      <!--Best Selling Products-->
       <div class="card">
         <div class="flex justify-content-between align-items-center mb-5">
           <h5>Best Selling Products</h5>
@@ -179,11 +192,16 @@
         </ul>
       </div>
     </div>
+
     <div class="col-12 xl:col-6">
+
+      <!--Sales Overview-->
       <div class="card">
         <h5>Sales Overview</h5>
         <Chart type="line" :data="lineData" :options="lineOptions"/>
       </div>
+
+      <!--Notification Section-->
       <div class="card">
         <div class="flex align-items-center justify-content-between mb-4">
           <h5>Notifications</h5>
@@ -236,6 +254,8 @@
           </li>
         </ul>
       </div>
+
+      <!--Prime Block Section-->
       <div class="px-4 py-5 shadow-2 flex flex-column md:flex-row md:align-items-center justify-content-between mb-3"
            style="border-radius: 1rem; background: linear-gradient(0deg, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0.5)), linear-gradient(92.54deg, #1C80CF 47.88%, #FFFFFF 100.01%)">
         <div>
@@ -324,7 +344,7 @@ export default {
     formatCurrency(value) {
       return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
     },
-    
+
     isDarkTheme() {
       return this.$appState.darkTheme === true;
     },
