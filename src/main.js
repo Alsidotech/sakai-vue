@@ -6,8 +6,8 @@ import './assets/styles/layout.scss';
 import './assets/demo/flags/flags.css';
 
 import { createApp, reactive } from 'vue';
-import router from './router';
-import AppWrapper from './AppWrapper.vue';
+import router from './routes/router';
+import AppWrapper from './app-setup/AppWrapper.vue';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -94,8 +94,8 @@ import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 
-import CodeHighlight from './AppCodeHighlight';
-import BlockViewer from './BlockViewer';
+import CodeHighlight from './app-setup/AppCodeHighlight';
+import BlockViewer from './app-setup/BlockViewer';
 
 router.beforeEach(function(to, from, next) {
     window.scrollTo(0, 0);
