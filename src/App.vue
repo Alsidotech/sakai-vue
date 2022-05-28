@@ -23,6 +23,7 @@
     <!--Application Configuration-->
     <AppConfig :layoutMode="layoutMode" @layout-change="onLayoutChange"/>
 
+    <!--Application layout mask(overlay) when open menu with mobile/tablet with-->
     <transition name="layout-mask">
       <div class="layout-mask p-component-overlay" v-if="mobileMenuActive"></div>
     </transition>
