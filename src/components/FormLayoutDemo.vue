@@ -2,7 +2,7 @@
   <div class="grid">
     <div class="col-12 md:col-6">
       <div class="card p-fluid">
-        <h5>Vertical - {{ form.name }}</h5>
+        <h5>Vertical</h5>
         <Input label="Name" v-model="form.name" mand="true" :error="error"/>
         <Input type="email" label="Email" v-model="form.email"/>
         <Input type="password" label="Password" v-model="form.password"/>
