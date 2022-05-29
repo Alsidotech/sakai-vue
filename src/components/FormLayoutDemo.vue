@@ -2,15 +2,10 @@
   <div class="grid">
     <div class="col-12 md:col-6">
       <div class="card p-fluid">
-        <h5>Vertical</h5>
-        <div class="field">
-          <label for="name1">Name</label>
-          <InputText id="name1" type="text"/>
-        </div>
-        <div class="field">
-          <label for="email1">Email</label>
-          <InputText id="email1" type="text"/>
-        </div>
+        <h5>Vertical - {{ form.name }}</h5>
+        <Input label="Name" v-model="form.name" mand="true" :error="error"/>
+        <Input type="email" label="Email" v-model="form.email"/>
+        <Input type="password" label="Password" v-model="form.password"/>
         <div class="field">
           <label for="age1">Age</label>
           <InputText id="age1" type="text"/>
@@ -110,15 +105,26 @@
 </template>
 
 <script>
+import Input from "./appifo/Input";
+
 export default {
+  components: {Input},
+
   data() {
     return {
+      form: {
+        name: '',
+        email: '',
+        password: '',
+        age: 0,
+      },
+      error: '',
       dropdownItems: [
         {name: 'Option 1', code: 'Option 1'},
         {name: 'Option 2', code: 'Option 2'},
         {name: 'Option 3', code: 'Option 3'}
       ],
-      dropdownItem: null
+      dropdownItem: null,
     }
   }
 }
