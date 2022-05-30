@@ -4,74 +4,26 @@
 
     <!--Order Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
-      <div class="card mb-0">
-        <div class="flex justify-content-between mb-3">
-          <div>
-            <span class="block text-500 font-medium mb-3">Orders</span>
-            <div class="text-900 font-medium text-xl">152</div>
-          </div>
-          <div class="flex align-items-center justify-content-center bg-blue-100 border-round"
-               style="width:2.5rem;height:2.5rem">
-            <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
-          </div>
-        </div>
-        <span class="text-green-500 font-medium">24 new </span>
-        <span class="text-500">since last visit</span>
-      </div>
+      <StatisticsCard title="Orders" stats="152" icon="pi-shopping-cart" periodic-stats="52 new"
+                      periodic-stats-info="since last visit" color="blue"/>
     </div>
 
     <!--Revenue Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
-      <div class="card mb-0">
-        <div class="flex justify-content-between mb-3">
-          <div>
-            <span class="block text-500 font-medium mb-3">Revenue</span>
-            <div class="text-900 font-medium text-xl">$2.100</div>
-          </div>
-          <div class="flex align-items-center justify-content-center bg-orange-100 border-round"
-               style="width:2.5rem;height:2.5rem">
-            <i class="pi pi-map-marker text-orange-500 text-xl"></i>
-          </div>
-        </div>
-        <span class="text-green-500 font-medium">%52+ </span>
-        <span class="text-500">since last week</span>
-      </div>
+      <StatisticsCard title="Revenue" stats="$2.100" icon="pi-map-marker" periodic-stats="%52+"
+                      periodic-stats-info="since last week" color="orange"/>
     </div>
 
     <!--Customers Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
-      <div class="card mb-0">
-        <div class="flex justify-content-between mb-3">
-          <div>
-            <span class="block text-500 font-medium mb-3">Customers</span>
-            <div class="text-900 font-medium text-xl">28441</div>
-          </div>
-          <div class="flex align-items-center justify-content-center bg-cyan-100 border-round"
-               style="width:2.5rem;height:2.5rem">
-            <i class="pi pi-inbox text-cyan-500 text-xl"></i>
-          </div>
-        </div>
-        <span class="text-green-500 font-medium">520  </span>
-        <span class="text-500">newly registered</span>
-      </div>
+      <StatisticsCard title="Customers" stats="28441" icon="pi-box" periodic-stats="520"
+                      periodic-stats-info="newly registered" color="cyan"/>
     </div>
 
     <!--Comments Stats-->
     <div class="col-12 lg:col-6 xl:col-3">
-      <div class="card mb-0">
-        <div class="flex justify-content-between mb-3">
-          <div>
-            <span class="block text-500 font-medium mb-3">Comments</span>
-            <div class="text-900 font-medium text-xl">152 Unread</div>
-          </div>
-          <div class="flex align-items-center justify-content-center bg-purple-100 border-round"
-               style="width:2.5rem;height:2.5rem">
-            <i class="pi pi-comment text-purple-500 text-xl"></i>
-          </div>
-        </div>
-        <span class="text-green-500 font-medium">85 </span>
-        <span class="text-500">responded</span>
-      </div>
+      <StatisticsCard title="Comments" stats="152" stats-info="Unread" icon="pi-comment" periodic-stats="85"
+                      periodic-stats-info="responded" color="purple"/>
     </div>
 
     <!--Sales Statistics Section-->
@@ -261,8 +213,10 @@
 <script>
 import EventBus from '@/app-setup/AppEventBus';
 import ProductService from '../service/ProductService';
+import StatisticsCard from "./appifo/StatisticsCard";
 
 export default {
+  components: {StatisticsCard},
   data() {
     return {
       products: null,
