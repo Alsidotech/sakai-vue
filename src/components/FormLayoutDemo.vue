@@ -118,7 +118,7 @@ export default {
         password: '',
         age: 0,
       },
-      error: '',
+      error: 'sdsdds',
       dropdownItems: [
         {name: 'Option 1', code: 'Option 1'},
         {name: 'Option 2', code: 'Option 2'},

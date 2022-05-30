@@ -1,10 +1,11 @@
 <template>
   <div class="input">
     <div class="field">
-      <label :for="lowerCaseLabel">{{ label }} <span v-if="mand" class="text-red-600 font-bold">*</span></label>
+      <label :for="lowerCaseLabel" :class="{'text-red-600': error}">{{ label }} <span v-if="mand" class="text-red-600 font-bold">*</span></label>
       <span class="p-input-icon-right">
          <input :type="typeOf" :id="lowerCaseLabel" :name="lowerCaseLabel"
-                :value="modelValue" @input="updateModelValue" class="p-inputtext p-component"/>
+                :value="modelValue" @input="updateModelValue" class="p-inputtext p-component"
+                :class="{'p-invalid': error}"/>
               <i class="pi pi-eye cursor-pointer hover:text-blue-500" v-if="type==='password' && typeOf==='password'"
                  @click="typeOf='text'"/>
               <i class="pi pi-eye-slash cursor-pointer hover:text-blue-500" v-else-if="type==='password' && typeOf==='text'"
