@@ -201,4 +201,14 @@ app.component('TriStateCheckbox', TriStateCheckbox);
 
 app.component('BlockViewer', BlockViewer);
 
+//import http service
+import {http} from "./services/http-service";
+
+http.interceptors.request.use(function (config) {
+    config.baseURL = config.baseURL || process.env.VUE_APP_API_URL;
+    return config;
+}, function (error) {
+    return Promise.reject(error);
+});
+
 app.mount('#app');
