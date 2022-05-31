@@ -85,12 +85,6 @@ export default {
           label: 'Utilities',
           items: [
             {label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', to: '/icons'},
-            {
-              label: 'PrimeFlex',
-              icon: 'pi pi-fw pi-desktop',
-              url: 'https://www.primefaces.org/primeflex/',
-              target: '_blank'
-            },
           ]
         },
         {
@@ -156,7 +150,7 @@ export default {
           items: [
             {
               label: 'Documentation', icon: 'pi pi-fw pi-question', command: () => {
-                window.location = "#/documentation"
+                window.location = "documentation"
               }
             },
             {

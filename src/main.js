@@ -6,7 +6,7 @@ import './assets/styles/layout.scss';
 import './assets/demo/flags/flags.css';
 
 import { createApp, reactive } from 'vue';
-import router from './routes/router';
+import index from './routes/index';
 import AppWrapper from './app-setup/AppWrapper.vue';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
@@ -97,7 +97,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 import CodeHighlight from './app-setup/AppCodeHighlight';
 import BlockViewer from './app-setup/BlockViewer';
 
-router.beforeEach(function(to, from, next) {
+index.beforeEach(function(to, from, next) {
     window.scrollTo(0, 0);
     next();
 });
@@ -109,7 +109,7 @@ app.config.globalProperties.$appState = reactive({ theme: 'lara-light-indigo', d
 app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 app.use(ConfirmationService);
 app.use(ToastService);
-app.use(router);
+app.use(index);
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
