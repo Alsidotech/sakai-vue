@@ -3,8 +3,7 @@ import {Resource} from "../../services/http-resource-service";
 export default {
     namespaced: true,
     state: {
-        currentUser: localStorage.getItem('test_user') ? JSON.parse(localStorage.getItem('test_user')) : null,
-        me: 'Ali Hassan',
+        currentUser: localStorage.getItem('test_user') ? JSON.parse(localStorage.getItem('user')) : null,
 
         registerReq: new Resource('/register', 'post'),
         logInReq: new Resource('/login', 'post'),

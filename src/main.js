@@ -5,7 +5,7 @@ import 'prismjs/themes/prism-coy.css';
 import './assets/styles/layout.scss';
 import './assets/demo/flags/flags.css';
 
-import { createApp, reactive } from 'vue';
+import {createApp, reactive} from 'vue';
 import index from './routes';
 import store from './store';
 
@@ -99,16 +99,16 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 import CodeHighlight from './app-setup/AppCodeHighlight';
 import BlockViewer from './app-setup/BlockViewer';
 
-index.beforeEach(function(to, from, next) {
+index.beforeEach(function (to, from, next) {
     window.scrollTo(0, 0);
     next();
 });
 
 const app = createApp(AppWrapper);
 
-app.config.globalProperties.$appState = reactive({ theme: 'lara-light-indigo', darkTheme: false });
+app.config.globalProperties.$appState = reactive({theme: 'lara-light-indigo', darkTheme: false});
 
-app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
+app.use(PrimeVue, {ripple: true, inputStyle: 'outlined'});
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(index);
