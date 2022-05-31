@@ -1,7 +1,10 @@
+import AlreadyLoggedIn from "../middlewares/AlreadyLoggedIn";
+
 export default {
     path: '/user',
     component: () => import(/* webpackChunkName: "user" */ '../pages/user'),
     redirect: '/user/login',
+    beforeEnter: AlreadyLoggedIn,
     children: [
         {
             path: 'login',

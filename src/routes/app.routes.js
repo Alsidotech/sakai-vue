@@ -1,6 +1,10 @@
+import AuthRequired from "../middlewares/AuthRequired";
+
 export default {
     path: '/',
     component: () => import(/* webpackChunkName: "index" */ '../App.vue'),
+    redirect: '/dashboard',
+    beforeEnter: AuthRequired,
     children: [
         {
             path: '',
