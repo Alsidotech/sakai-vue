@@ -12,23 +12,25 @@
           </div>
 
           <div class="w-full md:w-10 mx-auto">
-            <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
-            <InputText id="email1" v-model="email" type="text" class="w-full mb-3" placeholder="Email"
-                       style="padding:1rem;"/>
+            <form @submit.prevent="userLogin">
+              <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
+              <InputText id="email1" v-model="form.email" type="text" class="w-full mb-3" placeholder="Email"
+                         style="padding:1rem;"/>
 
-            <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label>
-            <Password id="password1" v-model="password" placeholder="Password" :toggleMask="true" class="w-full mb-3"
-                      inputClass="w-full" inputStyle="padding:1rem"></Password>
+              <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label>
+              <Password id="password1" v-model="form.password" placeholder="Password" :toggleMask="true"
+                        class="w-full mb-3" inputClass="w-full" inputStyle="padding:1rem"></Password>
 
-            <div class="flex align-items-center justify-content-between mb-5">
-              <div class="flex align-items-center">
-                <Checkbox id="rememberme1" v-model="checked" :binary="true" class="mr-2"></Checkbox>
-                <label for="rememberme1">Remember me</label>
+              <div class="flex align-items-center justify-content-between mb-5">
+                <div class="flex align-items-center">
+                  <Checkbox id="rememberme1" v-model="form.checked" :binary="true" class="mr-2"></Checkbox>
+                  <label for="rememberme1">Remember me</label>
+                </div>
+                <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot
+                  password?</a>
               </div>
-              <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot
-                password?</a>
-            </div>
-            <Button label="Sign In" class="w-full p-3 text-xl"></button>
+              <Button label="Sign In" class="w-full p-3 text-xl" type="submit"></button>
+            </form>
           </div>
         </div>
       </div>
@@ -37,20 +39,57 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
+
   data() {
     return {
-      email: '',
-      password: '',
-      checked: false
+      form: {
+        email: 'ali@gmail.com',
+        password: '12345',
+        checked: false
+      }
     }
   },
+
   computed: {
+    ...mapState('users', ['logInReq']),
+
     logoColor() {
       if (this.$appState.darkTheme) return 'white';
       return 'dark';
     }
-  }
+  },
+
+  methods: {
+    userLogin() {
+      this.logInReq.send({
+        data: this.form,
+
+        onSuccess: res => {
+          if (res.data.user) {
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+            localStorage.setItem('access_token', JSON.stringify(res.data.token));
+            this.$store.commit('users/SET_CURRENT_USER', res.data.user);
+            this.resetForm();
+            this.$router.push('/');
+          }
+        },
+
+        onError: err => {
+          console.log('err', err);
+        }
+
+      })
+    },
+
+    resetForm() {
+      this.form.email = '';
+      this.form.password = '';
+      this.form.checked = false
+    }
+  },
 }
 </script>
 
