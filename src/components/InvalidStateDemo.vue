@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import CountryService from '../service/CountryService';
+import CountryService from '../services/CountryService';
 
 export default {
   data() {

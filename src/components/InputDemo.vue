@@ -223,8 +223,8 @@
 </template>
 
 <script>
-import CountryService from '../service/CountryService';
-import NodeService from '../service/NodeService';
+import CountryService from '../services/CountryService';
+import NodeService from '../services/NodeService';
 
 export default {
   data() {

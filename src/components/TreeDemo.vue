@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import NodeService from '../service/NodeService'
+import NodeService from '../services/NodeService'
 
 export default {
   data() {

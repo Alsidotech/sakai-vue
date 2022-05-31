@@ -300,8 +300,8 @@
 
 <script>
 import {FilterMatchMode, FilterOperator} from 'primevue/api';
-import CustomerService from "../service/CustomerService";
-import ProductService from '../service/ProductService';
+import CustomerService from "../services/CustomerService";
+import ProductService from '../services/ProductService';
 
 export default {
   data() {

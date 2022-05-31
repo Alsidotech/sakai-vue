@@ -212,7 +212,7 @@
 
 <script>
 import EventBus from '@/app-setup/AppEventBus';
-import ProductService from '../service/ProductService';
+import ProductService from '../services/ProductService';
 import StatisticsCard from "./appifo/StatisticsCard";
 
 export default {

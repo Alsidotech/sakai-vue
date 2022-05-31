@@ -60,8 +60,8 @@
 </template>
 
 <script>
-import ProductService from "../service/ProductService";
-import PhotoService from "../service/PhotoService";
+import ProductService from "../services/ProductService";
+import PhotoService from "../services/PhotoService";
 
 export default {
   data() {
