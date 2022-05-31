@@ -211,4 +211,6 @@ http.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 
+app.config.globalProperties.appName = process.env.VUE_APP_NAME || 'App Name';
+
 app.mount('#app');
