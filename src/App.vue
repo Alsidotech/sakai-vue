@@ -1,6 +1,5 @@
 <template>
   <div :class="containerClass" @click="onWrapperClick">
-
     <!--Application TopBar-->
     <AppTopBar @menu-toggle="onMenuToggle"/>
 
@@ -92,8 +91,8 @@ export default {
           items: [
             {label: 'Crud', icon: 'pi pi-fw pi-user-edit', to: '/crud'},
             {label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline'},
-            {label: 'Landing', icon: 'pi pi-fw pi-globe', to: '/landing'},
-            {label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login'},
+            {label: 'Landing', icon: 'pi pi-fw pi-globe', to: '/user/landing'},
+            {label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/user/login'},
             {label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error'},
             {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound'},
             {label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access'},
@@ -197,6 +196,7 @@ export default {
 
       this.menuClick = false;
     },
+
     onMenuToggle() {
       this.menuClick = true;
 
@@ -217,33 +217,40 @@ export default {
 
       event.preventDefault();
     },
+
     onSidebarClick() {
       this.menuClick = true;
     },
+
     onMenuItemClick(event) {
       if (event.item && !event.item.items) {
         this.overlayMenuActive = false;
         this.mobileMenuActive = false;
       }
     },
+
     onLayoutChange(layoutMode) {
       this.layoutMode = layoutMode;
     },
+
     addClass(element, className) {
       if (element.classList)
         element.classList.add(className);
       else
         element.className += ' ' + className;
     },
+
     removeClass(element, className) {
       if (element.classList)
         element.classList.remove(className);
       else
         element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     },
+
     isDesktop() {
       return window.innerWidth >= 992;
     },
+
     isSidebarVisible() {
       if (this.isDesktop()) {
         if (this.layoutMode === 'static')

@@ -6,7 +6,9 @@ import './assets/styles/layout.scss';
 import './assets/demo/flags/flags.css';
 
 import { createApp, reactive } from 'vue';
-import index from './routes/index';
+import index from './routes';
+import store from './store';
+
 import AppWrapper from './app-setup/AppWrapper.vue';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
@@ -110,6 +112,7 @@ app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(index);
+app.use(store);
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
